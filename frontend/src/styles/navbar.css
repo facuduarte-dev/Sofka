@@ -154,6 +154,7 @@
 
   .navBar.menu-abierto ul,
   .navBar.menu-abierto .navSession {
+    width: 100%;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;

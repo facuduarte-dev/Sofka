@@ -14,7 +14,7 @@ function App() {
     <>
       <NavBar setPantalla={setPantalla} />
 
-      {pantalla === "Inicio" && <Inicio />}
+      {pantalla === "Inicio" && <Inicio setPantalla={setPantalla} />}
       {pantalla === "Soporte" && <Soporte />}
       {pantalla === "Login" && <Login />}
       {pantalla === "MiCuenta" && <MiCuenta />}

@@ -1,11 +1,16 @@
 import { useState } from "react";
 
-function NavBar({ setPantalla }) {
+function NavBar({ setPantalla, irASeccion }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   // Cambia de pantalla y cierra el menú (en celular)
   function ir(pantalla) {
     setPantalla(pantalla);
+    setMenuAbierto(false);
+  }
+
+  function irA(seccion) {
+    irASeccion(seccion);
     setMenuAbierto(false);
   }
 
@@ -19,9 +24,9 @@ function NavBar({ setPantalla }) {
         <div className="navLinks">
           <ul>
             <li><button className="link" onClick={() => ir("Inicio")}>Inicio</button></li>
-            <li><a href="#servicios" onClick={() => setMenuAbierto(false)}>Servicios</a></li>
-            <li><a href="#freelancers" onClick={() => setMenuAbierto(false)}>Freelancers</a></li>
-            <li><a href="#resenas" onClick={() => setMenuAbierto(false)}>Reseñas</a></li>
+            <li><button className="link" onClick={() => ir("Catalogo")}>Servicios</button></li>
+            <li><button className="link" onClick={() => irA("freelancers")}>Freelancers</button></li>
+            <li><button className="link" onClick={() => irA("resenas")}>Reseñas</button></li>
             <li><button className="link" onClick={() => ir("Soporte")}>Soporte</button></li>
           </ul>
         </div>

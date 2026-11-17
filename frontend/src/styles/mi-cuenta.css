@@ -1,0 +1,109 @@
+/* Estilos de la página original, limitados a .page-micuenta para que no afecten a otras pantallas */
+.page-micuenta, .page-micuenta * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.page-micuenta {
+  --verdeClaro: #50b4aa;
+  --verdeMedio: #3f928a;
+  --verdeOscuro: #306e68;
+  --blanco: #ffffff;
+  --pastelClaro: #f3eddf;
+  --pastelOscuro: #e5d8ba;
+}
+.page-micuenta {
+  background-color: var(--pastelClaro);
+  color: var(--verdeOscuro);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page-micuenta .navBar img {
+  width: 200px;
+}
+.page-micuenta .navBar a {
+  text-decoration: none;
+  color: var(--verdeOscuro);
+}
+.page-micuenta .navBar {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  padding: 20px 40px;
+}
+.page-micuenta .navBar ul {
+  display: flex;
+  gap: 40px;
+
+  list-style: none;
+}
+.page-micuenta .title {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 60px;
+}
+.page-micuenta .porfile img {
+  width: 100px;
+
+  display: flex;
+}
+.page-micuenta .porfile {
+  display: flex;
+
+  justify-content: space-evenly;
+}
+.page-micuenta .porfile h2 {
+  margin-bottom: 10px;
+}
+.page-micuenta .porfile ul {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  list-style: none;
+}
+.page-micuenta .porfile a {
+  text-decoration: none;
+  color: var(--verdeOscuro);
+}
+.page-micuenta .form {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.page-micuenta .porfile > div {
+  width: min(100%, 460px);
+}
+.page-micuenta .porfile form {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+}
+.page-micuenta .porfile input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c8d8d6;
+  border-radius: 8px;
+}
+@media (max-width: 800px) {
+.page-micuenta .title {
+    margin: 32px 20px 36px;
+    text-align: center;
+  }
+.page-micuenta .porfile {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px 40px;
+  }
+.page-micuenta .porfile img {
+    margin-bottom: 16px;
+  }
+
+}
+

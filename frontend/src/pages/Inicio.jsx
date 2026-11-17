@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Tarjeta from "../components/Tarjeta.jsx";
 import TarjetaFreelancer from "../components/TarjetaFreelancer.jsx";
 
@@ -109,7 +110,16 @@ const resenas = [
   },
 ];
 
-function Inicio({ setPantalla }) {
+function Inicio({ setPantalla, irACatalogo }) {
+  // Texto del buscador del hero (input controlado por React)
+  const [busqueda, setBusqueda] = useState("");
+
+  // Al enviar el buscador vamos al catálogo con ese texto como filtro
+  function buscar(e) {
+    e.preventDefault(); // evita que el form recargue la página
+    irACatalogo({ texto: busqueda, categoria: "" });
+  }
+
   return (
     <>
       <section className="hero">
@@ -122,25 +132,32 @@ function Inicio({ setPantalla }) {
             contenido en un solo lugar.
           </p>
 
-          <div className="divHeroNav">
+          <form className="divHeroNav" onSubmit={buscar}>
             <label htmlFor="buscarServicio" className="sr-only">
               Buscar servicio
             </label>
             <input
               id="buscarServicio"
-              type="text"
+              type="search"
               placeholder="¿Qué servicio estás buscando?"
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
             />
 
             <div>
-              <a href="#servicios" id="aHero1">
+              <button type="submit" id="aHero1" className="link">
                 Explorar Servicios
-              </a>
-              <button id="aHero2" className="link" onClick={() => setPantalla("Login")}>
+              </button>
+              <button
+                type="button"
+                id="aHero2"
+                className="link"
+                onClick={() => setPantalla("Login")}
+              >
                 Publicar Servicios
               </button>
             </div>
-          </div>
+          </form>
         </div>
 
         <div>
@@ -160,6 +177,7 @@ function Inicio({ setPantalla }) {
               icono={cat.icono}
               titulo={cat.titulo}
               descripcion={cat.descripcion}
+              onClick={() => irACatalogo({ texto: "", categoria: cat.titulo })}
             />
           ))}
         </div>

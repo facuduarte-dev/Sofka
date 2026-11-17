@@ -1,4 +1,4 @@
-function Footer({ setPantalla }) {
+function Footer({ setPantalla, irASeccion }) {
   return (
     <footer id="contacto">
       <div id="logo-footer">
@@ -13,13 +13,19 @@ function Footer({ setPantalla }) {
             <span className="footerText">Sobre nosotros</span>
           </li>
           <li>
-            <a href="#servicios">Servicios</a>
+            <button className="link" onClick={() => setPantalla("Catalogo")}>
+              Servicios
+            </button>
           </li>
           <li>
-            <a href="#freelancers">Freelancers</a>
+            <button className="link" onClick={() => irASeccion("freelancers")}>
+              Freelancers
+            </button>
           </li>
           <li>
-            <a href="#contacto">Contacto</a>
+            <button className="link" onClick={() => setPantalla("Soporte")}>
+              Contacto
+            </button>
           </li>
         </ul>
       </div>

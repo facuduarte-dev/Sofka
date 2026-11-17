@@ -1,0 +1,186 @@
+/* Catálogo de servicios y estados de carga/error (pantallas nuevas, no estaban en el original) */
+.catalogo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
+  color: var(--verdeOscuro);
+}
+
+.catalogoTitulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.catalogoTitulo h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.filtros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.filtros input {
+  width: min(500px, 100%);
+  padding: 12px 16px;
+  border: 2px solid var(--pastelOscuro);
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.filtros input:focus {
+  border-color: var(--verdeClaro);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chip {
+  padding: 8px 18px;
+  border: 2px solid var(--verdeClaro);
+  border-radius: 999px;
+  background: var(--blanco);
+  color: var(--verdeOscuro);
+  font: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chip:hover,
+.chip.activo {
+  background: var(--verdeClaro);
+  color: var(--blanco);
+}
+
+.gridServicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.cardServicio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px;
+  background: var(--blanco);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.4s;
+  animation: aparecer 0.4s ease both;
+}
+
+.cardServicio:hover {
+  transform: translateY(-6px);
+}
+
+.badgeCategoria {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--pastelClaro);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.cardServicio h3 {
+  font-size: 1.2rem;
+}
+
+.especialidad {
+  color: var(--verdeMedio);
+  font-size: 0.9rem;
+}
+
+.descripcionServicio {
+  color: #444;
+  flex-grow: 1;
+}
+
+.infoServicio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.precio {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.cardServicio button,
+.btn-estado {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: var(--verdeClaro);
+  color: var(--blanco);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cardServicio button:hover,
+.btn-estado:hover {
+  background: var(--verdeOscuro);
+}
+
+/* ---- Estados: cargando / error / vacío ---- */
+.estado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--verdeOscuro);
+}
+
+.estado i {
+  font-size: 2rem;
+}
+
+.estado-error {
+  color: #b3261e;
+}
+
+.btn-estado {
+  padding: 10px 25px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--pastelOscuro);
+  border-top-color: var(--verdeClaro);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

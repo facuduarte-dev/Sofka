@@ -1,0 +1,79 @@
+/* Estilos de la página original, limitados a .page-misservicios para que no afecten a otras pantallas */
+.page-misservicios {
+  --verde-claro: #50b4aa;
+  --verde-oscuro: #306e68;
+  --blanco: #ffffff;
+  --fondo: #f3eddf;
+}
+.page-misservicios, .page-misservicios * {
+  box-sizing: border-box;
+}
+.page-misservicios {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--verde-oscuro);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.page-misservicios > h2,
+.page-misservicios > p,
+.page-misservicios > form {
+  width: min(760px, calc(100% - 40px));
+  margin-right: auto;
+  margin-left: auto;
+}
+.page-misservicios > h2 {
+  margin-top: 48px;
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+.page-misservicios > p {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+.page-misservicios > form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 48px;
+  padding: 28px;
+  background: var(--blanco);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+.page-misservicios > form input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #c8d8d6;
+  border-radius: 8px;
+}
+.page-misservicios > form > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 18px;
+}
+.page-misservicios > form button {
+  min-height: 46px;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  font-weight: 700;
+  cursor: pointer;
+}
+.page-misservicios > form button:hover {
+  background: var(--verde-claro);
+}
+@media (max-width: 600px) {
+.page-misservicios > h2 {
+    margin-top: 32px;
+  }
+.page-misservicios > form {
+    padding: 20px;
+  }
+.page-misservicios > form > div {
+    grid-template-columns: 1fr;
+  }
+
+}
+

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar.jsx";
+import Footer from "./components/Footer.jsx";
 import Inicio from "./pages/Inicio.jsx";
 import Soporte from "./pages/Soporte.jsx";
 import Login from "./pages/Login.jsx";
@@ -21,6 +22,8 @@ function App() {
       {pantalla === "MisServicios" && <MisServicios />}
       {pantalla === "Contrataciones" && <Contrataciones />}
       {pantalla === "PerfilAna" && <PerfilAna />}
+
+      <Footer setPantalla={setPantalla} />
     </>
   );
 }

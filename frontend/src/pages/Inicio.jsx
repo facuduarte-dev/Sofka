@@ -64,6 +64,51 @@ const freelancers = [
   },
 ];
 
+const pasos = [
+  {
+    id: 1,
+    icono: "fa-solid fa-magnifying-glass",
+    titulo: "Buscar",
+    descripcion: "Encuentra tu servicio ideal.",
+  },
+  {
+    id: 2,
+    icono: "fa-solid fa-code-compare",
+    titulo: "Comparar",
+    descripcion: "Revisa perfiles, experiencia y valoraciones.",
+  },
+  {
+    id: 3,
+    icono: "fa-regular fa-comments",
+    titulo: "Contactar",
+    descripcion: "Habla directamente con el profesional.",
+  },
+  {
+    id: 4,
+    icono: "fa-solid fa-handshake",
+    titulo: "Contratar",
+    descripcion: "Comienza tu proyecto de forma rápida y segura.",
+  },
+];
+
+const resenas = [
+  {
+    id: 1,
+    texto: "Encontré un diseñador excelente en menos de una hora.",
+    autor: "Ana Gómez",
+  },
+  {
+    id: 2,
+    texto: "Excelente plataforma para encontrar desarrolladores.",
+    autor: "Carlos Fernández",
+  },
+  {
+    id: 3,
+    texto: "Muy fácil de usar y con profesionales de calidad.",
+    autor: "Lucía Rodríguez",
+  },
+];
+
 function Inicio({ setPantalla }) {
   return (
     <>
@@ -131,6 +176,32 @@ function Inicio({ setPantalla }) {
               profesion={freelancer.profesion}
               rating={freelancer.rating}
             />
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 id="titleComoFunciona">¿Cómo funciona?</h2>
+        <div className="ComoFuncionaContainer">
+          {pasos.map((paso) => (
+            <div className="ComoFunciona" key={paso.id}>
+              <i className={paso.icono} aria-hidden="true"></i>
+              <h2>{paso.titulo}</h2>
+              <p>{paso.descripcion}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="reseñas" id="resenas">
+        <h2 id="titleResenas">Lo que dicen nuestros usuarios</h2>
+        <div className="reseñasCardContainer">
+          {resenas.map((resena) => (
+            <div className="cardReseña" key={resena.id}>
+              <p>"{resena.texto}"</p>
+              <p>⭐⭐⭐⭐⭐</p>
+              <p>{resena.autor}</p>
+            </div>
           ))}
         </div>
       </section>

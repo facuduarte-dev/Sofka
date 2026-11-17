@@ -92,7 +92,7 @@ function App() {
         <MisServicios sesion={sesion} setPantalla={setPantalla} />
       )}
       {pantallaVisible === "Contrataciones" && <Contrataciones />}
-      {pantallaVisible === "PerfilAna" && <PerfilAna />}
+      {pantallaVisible === "PerfilAna" && <PerfilAna setPantalla={setPantalla} />}
 
       <Footer setPantalla={setPantalla} irASeccion={irASeccion} />
     </>

@@ -12,23 +12,30 @@ function Catalogo({ filtroInicial, setPantalla }) {
   const [texto, setTexto] = useState(filtroInicial.texto);
   const [categoria, setCategoria] = useState(filtroInicial.categoria);
 
-  async function cargarServicios() {
+  // "intento" sirve para el botón Reintentar: al cambiarlo, el useEffect vuelve a ejecutarse
+  const [intento, setIntento] = useState(0);
+
+  // Pide los servicios al backend cuando aparece la pantalla (y en cada reintento)
+  useEffect(() => {
+    async function cargarServicios() {
+      try {
+        const datos = await obtenerServicios();
+        setServicios(datos);
+        setError("");
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setCargando(false);
+      }
+    }
+    cargarServicios();
+  }, [intento]);
+
+  function reintentar() {
     setCargando(true);
     setError("");
-    try {
-      const datos = await obtenerServicios();
-      setServicios(datos);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setCargando(false);
-    }
+    setIntento(intento + 1);
   }
-
-  // useEffect con [] se ejecuta una sola vez, cuando la pantalla aparece
-  useEffect(() => {
-    cargarServicios();
-  }, []);
 
   // Categorías sin repetir, sacadas de los servicios que existen (Set elimina duplicados)
   const categorias = [...new Set(servicios.map((s) => s.categoria))];
@@ -88,7 +95,7 @@ function Catalogo({ filtroInicial, setPantalla }) {
 
       {cargando && <Cargando texto="Cargando servicios..." />}
 
-      {!cargando && error && <MensajeError texto={error} onReintentar={cargarServicios} />}
+      {!cargando && error && <MensajeError texto={error} onReintentar={reintentar} />}
 
       {!cargando && !error && filtrados.length === 0 && (
         <SinResultados texto="No encontramos servicios con esa búsqueda." />

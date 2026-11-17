@@ -11,27 +11,33 @@ function PanelAdmin({ token, setPantalla }) {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
 
-  async function cargarDatos() {
-    setCargando(true);
-    setError("");
-    try {
-      // Promise.all hace los dos pedidos a la vez y espera a que terminen ambos
-      const [listaServicios, listaMensajes] = await Promise.all([
-        obtenerServicios(),
-        obtenerMensajes(token),
-      ]);
-      setServicios(listaServicios);
-      setMensajes(listaMensajes);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setCargando(false);
-    }
-  }
+  const [intento, setIntento] = useState(0); // cambia al tocar "Reintentar"
 
   useEffect(() => {
+    async function cargarDatos() {
+      try {
+        // Promise.all hace los dos pedidos a la vez y espera a que terminen ambos
+        const [listaServicios, listaMensajes] = await Promise.all([
+          obtenerServicios(),
+          obtenerMensajes(token),
+        ]);
+        setServicios(listaServicios);
+        setMensajes(listaMensajes);
+        setError("");
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setCargando(false);
+      }
+    }
     cargarDatos();
-  }, []);
+  }, [token, intento]);
+
+  function reintentar() {
+    setCargando(true);
+    setError("");
+    setIntento(intento + 1);
+  }
 
   async function borrar(servicio) {
     // confirm() pide confirmación antes de una acción que no se puede deshacer
@@ -76,7 +82,7 @@ function PanelAdmin({ token, setPantalla }) {
       </div>
 
       {cargando && <Cargando texto="Cargando panel..." />}
-      {!cargando && error && <MensajeError texto={error} onReintentar={cargarDatos} />}
+      {!cargando && error && <MensajeError texto={error} onReintentar={reintentar} />}
 
       {!cargando && !error && pestana === "servicios" && (
         servicios.length === 0 ? (

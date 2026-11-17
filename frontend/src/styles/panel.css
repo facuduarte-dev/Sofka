@@ -1,0 +1,48 @@
+/* Estilos de Mi cuenta y del panel de administrador (nuevos en la versión React) */
+.page-micuenta {
+  padding: 40px 0 60px;
+}
+
+.page-micuenta .porfile .link {
+  color: var(--verdeOscuro);
+  font-weight: bold;
+}
+
+.page-micuenta .porfile .link:hover {
+  color: var(--verdeClaro);
+}
+
+.btn-panel {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--verdeClaro);
+  color: var(--blanco);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-panel:hover {
+  background: var(--verdeOscuro);
+}
+
+.btn-secundario {
+  background: transparent;
+  border: 2px solid var(--verdeOscuro);
+  color: var(--verdeOscuro);
+}
+
+.btn-secundario:hover {
+  color: var(--blanco);
+}
+
+.btn-peligro {
+  background: #b3261e;
+}
+
+.btn-peligro:hover {
+  background: #8c1d17;
+}

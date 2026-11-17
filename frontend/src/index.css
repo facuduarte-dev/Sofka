@@ -1,5 +1,6 @@
-/* Botones que se ven como links (navegación entre pantallas) */
-button.link {
+/* Botones que se ven como links (navegación entre pantallas).
+   :where() deja la especificidad en 0 para que los estilos de cada sección (navbar, footer) ganen */
+:where(button.link) {
   background: none;
   border: none;
   padding: 0;

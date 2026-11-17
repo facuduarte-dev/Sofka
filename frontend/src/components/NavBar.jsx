@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NavBar({ setPantalla, irASeccion }) {
+function NavBar({ setPantalla, irASeccion, sesion }) {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   // Cambia de pantalla y cierra el menú (en celular)
@@ -32,9 +32,16 @@ function NavBar({ setPantalla, irASeccion }) {
         </div>
 
         <div className="navSession">
-          <button className="link" onClick={() => ir("Login")}>
-            Registrarse / Iniciar Sesión
-          </button>
+          {/* Si hay sesión mostramos "Mi cuenta"; si no, el acceso al login */}
+          {sesion ? (
+            <button className="link" onClick={() => ir("MiCuenta")}>
+              <i className="fa-regular fa-user"></i> {sesion.usuario.nombre}
+            </button>
+          ) : (
+            <button className="link" onClick={() => ir("Login")}>
+              Registrarse / Iniciar Sesión
+            </button>
+          )}
         </div>
 
         <button

@@ -342,3 +342,9 @@
 
 }
 
+
+/* Ajuste para React: en el original el contenedor era el <body>.
+   Acá apilamos título, tarjetas y aviso en columna. */
+.page-login {
+  flex-direction: column;
+}

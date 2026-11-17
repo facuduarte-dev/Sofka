@@ -88,7 +88,9 @@ function App() {
       {pantallaVisible === "MiCuenta" && (
         <MiCuenta sesion={sesion} setPantalla={setPantalla} onCerrarSesion={cerrarSesion} />
       )}
-      {pantallaVisible === "MisServicios" && <MisServicios />}
+      {pantallaVisible === "MisServicios" && (
+        <MisServicios sesion={sesion} setPantalla={setPantalla} />
+      )}
       {pantallaVisible === "Contrataciones" && <Contrataciones />}
       {pantallaVisible === "PerfilAna" && <PerfilAna />}
 

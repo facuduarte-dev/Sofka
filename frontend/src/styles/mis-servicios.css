@@ -77,3 +77,29 @@
 
 }
 
+
+/* Ajustes React: select y textarea con el mismo estilo que los inputs del original */
+.page-misservicios > form select,
+.page-misservicios > form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c8d8d6;
+  border-radius: 8px;
+  font: inherit;
+  background: var(--blanco);
+}
+
+.page-misservicios > form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.page-misservicios > form .btn-volver {
+  background: transparent;
+  color: var(--verde-oscuro);
+  border: 2px solid var(--verde-oscuro);
+}
+
+.page-misservicios > form .btn-volver:hover {
+  color: var(--blanco);
+}

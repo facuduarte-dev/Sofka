@@ -1,3 +1,4 @@
+import PanelAdmin from "../components/PanelAdmin.jsx";
 import "../styles/mi-cuenta.css";
 import "../styles/panel.css";
 
@@ -61,6 +62,9 @@ function MiCuenta({ sesion, setPantalla, onCerrarSesion }) {
           </button>
         </div>
       </section>
+
+      {/* El panel solo existe para el admin (y el backend igual valida el rol) */}
+      {esAdmin && <PanelAdmin token={sesion.token} setPantalla={setPantalla} />}
     </div>
   );
 }

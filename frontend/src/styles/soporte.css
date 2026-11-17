@@ -7,7 +7,7 @@
     --pastelClaro: #f3eddf;
     --pastelOscuro: #e5d8ba;
 }
-.page-soporte, .page-soporte * {
+:where(.page-soporte, .page-soporte *) {
     margin:0;
     padding:0;
     box-sizing:border-box;

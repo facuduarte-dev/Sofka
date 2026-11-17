@@ -5,7 +5,7 @@
   --blanco: #ffffff;
   --fondo: #f3eddf;
 }
-.page-misservicios, .page-misservicios * {
+:where(.page-misservicios, .page-misservicios *) {
   box-sizing: border-box;
 }
 .page-misservicios {

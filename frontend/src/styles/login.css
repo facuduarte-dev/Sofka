@@ -7,7 +7,7 @@
   --pastelClaro: #f3eddf;
   --pastelOscuro: #e5d8ba;
 }
-.page-login, .page-login * {
+:where(.page-login, .page-login *) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

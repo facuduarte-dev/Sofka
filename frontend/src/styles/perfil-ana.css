@@ -1,5 +1,5 @@
 /* Estilos de la página original, limitados a .page-perfilana para que no afecten a otras pantallas */
-.page-perfilana, .page-perfilana * {
+:where(.page-perfilana, .page-perfilana *) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

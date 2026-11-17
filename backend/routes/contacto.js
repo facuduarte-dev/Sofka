@@ -1,5 +1,6 @@
 import { Router } from "express";
 import Mensaje from "../models/Mensaje.js";
+import { verificarToken, soloAdmin } from "../middleware/auth.js";
 
 const router = Router();
 
@@ -10,8 +11,8 @@ router.post("/", async (req, res) => {
   res.status(201).json({ mensaje: "¡Gracias! Recibimos tu mensaje y te responderemos pronto." });
 });
 
-// GET /contacto -> lista de mensajes recibidos (para el panel de administrador)
-router.get("/", async (req, res) => {
+// GET /contacto -> lista de mensajes recibidos (solo admin, para su panel)
+router.get("/", verificarToken, soloAdmin, async (req, res) => {
   const mensajes = await Mensaje.find().sort({ createdAt: -1 });
   res.json(mensajes);
 });

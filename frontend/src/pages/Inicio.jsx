@@ -136,7 +136,7 @@ function Inicio({ setPantalla }) {
               <a href="#servicios" id="aHero1">
                 Explorar Servicios
               </a>
-              <button id="aHero2" onClick={() => setPantalla("Login")}>
+              <button id="aHero2" className="link" onClick={() => setPantalla("Login")}>
                 Publicar Servicios
               </button>
             </div>
@@ -175,6 +175,7 @@ function Inicio({ setPantalla }) {
               nombre={freelancer.nombre}
               profesion={freelancer.profesion}
               rating={freelancer.rating}
+              onVerPerfil={() => setPantalla("PerfilAna")}
             />
           ))}
         </div>

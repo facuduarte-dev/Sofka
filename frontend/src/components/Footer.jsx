@@ -28,7 +28,7 @@ function Footer({ setPantalla }) {
         <h3>Recursos</h3>
         <ul>
           <li>
-            <button onClick={() => setPantalla("Soporte")}>Ayuda</button>
+            <button className="link" onClick={() => setPantalla("Soporte")}>Ayuda</button>
           </li>
           <li>
             <span className="footerText">Preguntas frecuentes</span>

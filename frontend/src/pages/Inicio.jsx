@@ -1,4 +1,5 @@
 import Tarjeta from "../components/Tarjeta.jsx";
+import TarjetaFreelancer from "../components/TarjetaFreelancer.jsx";
 
 const categorias = [
   {
@@ -36,6 +37,30 @@ const categorias = [
     icono: "fa-robot",
     titulo: "IA",
     descripcion: "Automatizaciones y Chatbots",
+  },
+];
+
+const freelancers = [
+  {
+    id: 1,
+    foto: "https://images.pexels.com/photos/1604024/pexels-photo-1604024.jpeg",
+    nombre: "Ana García",
+    profesion: "Diseñadora web",
+    rating: 4.9,
+  },
+  {
+    id: 2,
+    foto: "https://images.pexels.com/photos/16323580/pexels-photo-16323580.jpeg",
+    nombre: "Pedro Sanchez",
+    profesion: "Full Stack Developer",
+    rating: 4.9,
+  },
+  {
+    id: 3,
+    foto: "https://images.pexels.com/photos/9034719/pexels-photo-9034719.jpeg",
+    nombre: "Alonso Mazza",
+    profesion: "Marketing CN",
+    rating: 4.9,
   },
 ];
 
@@ -81,7 +106,6 @@ function Inicio({ setPantalla }) {
           />
         </div>
       </section>
-
       <section id="servicios">
         <h2 id="titleCatPopulares">Categorías Populares</h2>
         <div className="cardContainer">
@@ -91,6 +115,21 @@ function Inicio({ setPantalla }) {
               icono={cat.icono}
               titulo={cat.titulo}
               descripcion={cat.descripcion}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section id="freelancers">
+        <h2 id="titleDestacados">Freelancers Destacados</h2>
+        <div className="cardDestacadosContainer">
+          {freelancers.map((freelancer) => (
+            <TarjetaFreelancer
+              key={freelancer.id}
+              foto={freelancer.foto}
+              nombre={freelancer.nombre}
+              profesion={freelancer.profesion}
+              rating={freelancer.rating}
             />
           ))}
         </div>
